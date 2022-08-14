@@ -1,4 +1,4 @@
-# Laravue Skeleton
+# Arch Blog
 
 ## Sail Alias
 
