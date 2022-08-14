@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '@/views/HomeView.vue'
+import LoginModal from '@/views/Auth/LoginModal.vue'
+import RegisterModal from '@/views/Auth/RegisterModal.vue'
 
 const router = createRouter({
     history: createWebHistory('/'),
@@ -7,15 +9,20 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: HomeView
-        },
-        {
-            path: '/about',
-            name: 'about',
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () => import('../views/AboutView.vue')
+            component: HomeView,
+
+            children: [
+                {
+                    path: '/login',
+                    name: 'login',
+                    component: LoginModal
+                },
+                {
+                    path: '/registration',
+                    name: 'registration',
+                    component: RegisterModal
+                }
+            ]
         }
     ]
 })

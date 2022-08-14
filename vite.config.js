@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
+import vuetify from 'vite-plugin-vuetify'
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/scripts/main.ts'],
+            input: ['resources/scripts/main.ts'],
             refresh: true
         }),
         vue({
@@ -15,7 +16,8 @@ export default defineConfig({
                     includeAbsolute: false
                 }
             }
-        })
+        }),
+        vuetify({ autoImport: true })
     ],
     resolve: {
         alias: {

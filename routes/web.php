@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('guest')->group(function () {
+    Route::get('login', static function () {
+        return view('index');
+    })->name('login');
+
+    Route::get('registration', static function () {
+        return view('index');
+    })->name('registration');
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('user', static function () {
+        return auth()->user();
+    });
+});
+
+Route::get('{any}', static function () {
+    return view('index');
+})->where('any', '.*');

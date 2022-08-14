@@ -6,7 +6,7 @@
 
         <title>Laravel</title>
 
-        @vite(['resources/css/app.css', 'resources/scripts/main.ts'])
+        @vite(['resources/scripts/main.ts'])
     </head>
     <body>
     <main id="app"></main>
